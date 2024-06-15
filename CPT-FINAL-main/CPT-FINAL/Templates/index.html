@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <title>College Predictor</title>
+</head>
+<body>
+    <center>
+        <div class="imgimg">
+            <img src="logo.8ab488a.png" width="200">
+        </div>
+        
+        <form class="form" action="/results" method="post">
+            <p class="title">College Predictor</p>
+            <p class="message">Find out the best colleges for you.</p>
+    <form action="/results" method="post">
+
+
+        <label>
+            <input class="input" type="text" name="FullName" placeholder="" required="">
+            <span><i class="fa-solid fa-user-tie"></i> Fullname</span>
+        </label>
+
+        <label>
+            <input class="input" type="mnumber" name="MobileNumber" placeholder="" required="">
+            <span><i class="fa-solid fa-phone"></i> Mobile number</span>
+        </label> 
+        
+        
+        <label for="Cut-off"> 
+            <input class="input" type="number" name="Cut-off" placeholder="" required="">
+            <span><i class="fa-solid fa-rectangle-list"></i> Cut-off</span>
+        </label>
+        
+        
+
+
+        <div class="selecttag">
+          <select required name="course">
+              <option value="" disabled selected>Select course</option>
+              <option value="ARTIFICIAL INTELLIGENCE AND DATA SCIENCE">ARTIFICIAL INTELLIGENCE AND DATA SCIENCE</option>
+              <option value="BIO TECHNOLOGY">BIO TECHNOLOGY</option>
+              <option value="CIVIL ENGINEERING">CIVIL ENGINEERING</option>
+              <option value="CIVIL ENGINEERING (TAMIL MEDIUM)">CIVIL ENGINEERING (TAMIL MEDIUM)</option>
+              <option value="COMPUTER SCIENCE AND ENGINEERING">COMPUTER SCIENCE AND ENGINEERING</option>
+              <option value="COMPUTER SCIENCE AND BUSINESS SYSTEM">COMPUTER SCIENCE AND BUSINESS SYSTEM</option>
+              <option value="COMPUTER SCIENCE AND ENGINEERING(AIML)">COMPUTER SCIENCE AND ENGINEERING(AIML)</option>
+              <option value="M.Tech.COMPUTER SCIENCE ENGINEERING(5Y)">M.Tech.COMPUTER SCIENCE ENGINEERING(5Y)</option>
+              <option value="ELECTRONICS &COMMUNICATION ENGINEERING">ELECTRONICS &COMMUNICATION ENGINEERING</option>
+              <option value="ELECTRICAL AND ELECTRONICS ENGINEERING">ELECTRICAL AND ELECTRONICS ENGINEERING</option>
+              <option value="FOOD TECHNOLOGY">FOOD TECHNOLOGY</option>
+              <option value="INDUSTRIAL ENGINEERING">INDUSTRIAL ENGINEERING</option>
+              <option value="INFORMATION TECHNOLOGY">INFORMATION TECHNOLOGY</option>
+              <option value="MANUFACTURING ENGINEERING">MANUFACTURING ENGINEERING</option>
+              <option value="MECHANICAL ENGINEERING">MECHANICAL ENGINEERING</option>
+              <option value="MECHANICAL ENGINEERING (TAMIL MEDIUM)">MECHANICAL ENGINEERING (TAMIL MEDIUM)</option>
+              <option value="MECHATRONICS">MECHATRONICS</option>
+              <option value="METALLURGICAL ENGINEERING">METALLURGICAL ENGINEERING</option>
+              <option value="PRODUCTION ENGINEERING">PRODUCTION ENGINEERING</option>
+              <option value="ROBOTICS AND AUTOMATION">ROBOTICS AND AUTOMATION</option>
+
+          </select>
+      </div>
+        
+        <div class="selectcommunity">
+            <select required name="Community"> 
+                <option value="" disabled selected><i class="fa-solid fa-user-tie"></i>Select Community</option>
+                <option value="OC">OC</option>
+                <option value="MBC">MBC</option>
+                <option value="BC">BC</option>
+                <option value="BCM">BCM</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+                <option value="SCA">SCA</option> 
+                <option class="myidea" value="" disabled seleted>OCfreredcgfdcgfdscfdresdfsjjhhhhhhhhhhhhhhjjjjj</option>
+            </select>
+        </div>
+        
+        
+        <button type="submit">
+            <div class="svg-wrapper-1">
+              <div class="svg-wrapper">
+                <i class="fa-solid fa-arrow-right"></i>
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                  <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                </svg>
+              </div>
+            </div>
+            <span>Search College</span>
+          </button>
+    </form>
+</center>
+</body>
+
+</html>
+<style>
+    body{
+    font-family: 'Montserrat';
+    background-image: linear-gradient(rgb(252, 252, 222),rgb(255, 255, 255));
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+    max-height: 400px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    top: 60px;
+    
+
+    position: relative;
+    background-color: #1a1a1a00;
+    color: #000000;
+    border: 1px solid #00000000;
+  }
+  
+  .title {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    position: relative;
+    display: flex;
+    top: -10px;
+    left: 30px;
+    align-items: center;
+    padding-left: 30px;
+    color: hsla(65, 100%, 41%, 0);
+    background-image: linear-gradient(90deg,rgb(6, 174, 0),rgb(5, 80, 0));
+    background-clip: text;
+    
+  }
+  
+  .title::before {
+    width: 18px;
+    height: 18%;
+  }
+  
+  .title::after {
+    width: 18px;
+    height: 18px;
+    animation: pulse 1s linear infinite;
+  }
+  
+
+  
+  .message{
+    bottom: 50px;
+    position: relative;
+  } 
+  .signin {
+    font-size: 14.5px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .signin {
+    text-align: center;
+  }
+  
+  .signin a:hover {
+    text-decoration: underline royalblue;
+  }
+  
+  .signin a {
+    color: #00bfff;
+  }
+  
+  .flex {
+    display: flex;
+    width: 100%;
+    gap: 6px;
+  }
+  
+  .form label {
+    position: relative;
+    bottom: 60px;
+    right: 15px;
+  }
+  
+  .form label .input {
+    background-color: #33333300;
+    color: #000000;
+    width: 106%;
+    padding: 12px 05px 15px 10px;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    border-radius: 10px;
+    
+  }
+  
+  .form label .input + span {
+    color: rgb(0, 0, 0);
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+  }
+  
+  .form label .input:placeholder-shown + span {
+    top: 12.5px;
+    font-size: 0.9em;
+  }
+  
+  .form label .input:focus + span,
+  .form label .input:valid + span {
+    color: #ff0a0a00;
+    top: 0px;
+    font-size: 0.7em;
+    
+    font-weight: 600;
+  }
+  
+  .input {
+    font-size: medium;
+  }
+  
+  .submit {
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    transform: .3s ease;
+    background-color: #00bfff;
+  }
+  
+  .submit:hover {
+    background-color: #00bfff96;
+  }
+  
+  @keyframes pulse {
+    from {
+      transform: scale(0.9);
+      opacity: 1;
+    }
+  
+    to {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
+  .button {
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    padding-block: 1.1rem;
+    padding-inline: 1.2rem;
+    background-image: linear-gradient(90deg,rgb(49, 183, 0), rgb(6, 74, 0));
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    gap: 10px;
+    font-family: 'Montserrat';
+    bottom: 80px;
+    font-weight: bold;
+    border: 3px solid #236900;
+    outline: none;
+    overflow: hidden;
+    font-size: 15px;
+  }
+  
+  .icon {
+    width: 24px;
+    height: 24px;
+    transition: all 0.9s ease-in-out;
+  }
+  
+  .button:hover {
+    transform: scale(1.05);
+    border-color: rgb(60, 255, 0);
+  }
+  
+  .button:hover .icon {
+    transform: translate(4px);
+  }
+  
+  .button:hover::before {
+    animation: shine 2.5s ease-out infinite;
+  }
+  
+  .button::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    background-image: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0) 70%
+    );
+    top: 0;
+    left: -100px;
+    opacity: 0.6;
+  }
+  
+  @keyframes shine {
+    0% {
+      left: -100px;
+    }
+  
+    60% {
+      left: 100%;
+    }
+  
+    to {
+      left: 100%;
+    }
+  }
+
+  .selecttag select{
+    border-radius: 10px;
+    padding: 11px 0px;
+    
+    background-color: #33333300;
+    color: rgb(1, 1, 1);
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    font-family: 'Montserrat';
+  }
+  .selecttag select option{
+    position: relative;
+    right: 20px;
+    color: #000000;
+    background-color: #fff;
+    
+    font-weight: 800;
+  }
+  .selecttag{
+    position: relative;
+    bottom: 60px;
+    transform: scale(1.1);
+  }
+  @media (max-width: 360px){
+    .selecttag select{
+        padding: 11px 0px;
+        transform: scale(0.98);
+        position: relative;
+        right: 4px;
+
+    }
+  }
+
+  .note{
+    position: relative;
+    bottom: 70px;
+  }
+
+  .imgimg{
+    position: relative;
+    top: 80px;
+  }
+
+ 
+  .selecttag1 select{
+    position: relative;
+    border-radius: 10px;
+    padding: 13px 20px;
+    font-family: 'Montserrat';
+    bottom: 50px;
+    right: 20px;
+    
+  }
+  .form .selecttag1 select option{
+    position: relative;
+    align-items: last baseline;
+    color: #000000;
+    top: 30px;
+  }
+  .selectcommunity{
+    position: relative;
+    bottom: 60px;
+    right: 16px;
+    
+  }
+  .selectcommunity select{
+    border-radius: 10px;
+  font-family: 'Montserrat';
+    padding: 13px 11px;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    
+    
+  
+  }
+
+ 
+.selectcommunity select option p{
+  color: #ff4400;
+}
+
+.selectcommunity select option h1{
+  color: #ff4400;
+}
+
+@media (max-width: 360px) {
+    .selectcommunity select{
+        position: relative;
+        padding: 13px 0px;
+        transform: scale(0.94);
+        right: 11px;
+    }
+}
+
+.myidea{
+  position: relative;
+  color: #ff440000;
+  background-color: #ffffff;
+}
+
+
+
+button {
+    font-family: inherit;
+    font-size: 18px;
+    background: linear-gradient(90deg, #ffe100 0%,#ffa200 100%);
+    color: white;
+    padding: 0.8em 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    position: relative;
+    bottom: 30px;
+    
+  }
+  
+  button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  button:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  button span {
+    display: block;
+    margin-left: 0.4em;
+    transition: all 0.3s;
+  }
+  
+  button svg {
+    width: 18px;
+    height: 18px;
+    fill: white;
+    transition: all 0.3s;
+  }
+  
+  button .svg-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-right: 0.5em;
+    transition: all 0.3s;
+  }
+  
+  button:hover .svg-wrapper {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  button:hover svg {
+    transform: rotate(45deg);
+  }
+</style>

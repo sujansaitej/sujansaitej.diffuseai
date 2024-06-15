@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>College Predictor Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .section {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .nav {
+            margin-top: 20px;
+        }
+        .nav button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .filter {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>College Predictor Results</h1>
+        <div class="nav">
+            <button onclick="showSection('for-you')">For You</button>
+            <button onclick="showSection('top-colleges')">Top Colleges</button>
+        </div>
+        <div class="filter">
+            <form action="/results" method="post">
+                <label for="course">Change Course:</label>
+                <input type="hidden" name="Cut-off" value="{{ original_marks }}">
+                <input type="hidden" name="Community" value="{{ caste }}">
+                <select name="course" id="course">
+                    <!-- Add options for courses here -->
+                    <option value="" disabled selected>Select course</option>
+              <option value="ARTIFICIAL INTELLIGENCE AND DATA SCIENCE">ARTIFICIAL INTELLIGENCE AND DATA SCIENCE</option>
+              <option value="BIO TECHNOLOGY">BIO TECHNOLOGY</option>
+              <option value="CIVIL ENGINEERING">CIVIL ENGINEERING</option>
+              <option value="CIVIL ENGINEERING (TAMIL MEDIUM)">CIVIL ENGINEERING (TAMIL MEDIUM)</option>
+              <option value="COMPUTER SCIENCE AND ENGINEERING">COMPUTER SCIENCE AND ENGINEERING</option>
+              <option value="COMPUTER SCIENCE AND BUSINESS SYSTEM">COMPUTER SCIENCE AND BUSINESS SYSTEM</option>
+              <option value="COMPUTER SCIENCE AND ENGINEERING(AIML)">COMPUTER SCIENCE AND ENGINEERING(AIML)</option>
+              <option value="M.Tech.COMPUTER SCIENCE ENGINEERING(5Y)">M.Tech.COMPUTER SCIENCE ENGINEERING(5Y)</option>
+              <option value="ELECTRONICS &COMMUNICATION ENGINEERING">ELECTRONICS &COMMUNICATION ENGINEERING</option>
+              <option value="ELECTRICAL AND ELECTRONICS ENGINEERING">ELECTRICAL AND ELECTRONICS ENGINEERING</option>
+              <option value="FOOD TECHNOLOGY">FOOD TECHNOLOGY</option>
+              <option value="INDUSTRIAL ENGINEERING">INDUSTRIAL ENGINEERING</option>
+              <option value="INFORMATION TECHNOLOGY">INFORMATION TECHNOLOGY</option>
+              <option value="MANUFACTURING ENGINEERING">MANUFACTURING ENGINEERING</option>
+              <option value="MECHANICAL ENGINEERING">MECHANICAL ENGINEERING</option>
+              <option value="MECHANICAL ENGINEERING (TAMIL MEDIUM)">MECHANICAL ENGINEERING (TAMIL MEDIUM)</option>
+              <option value="MECHATRONICS">MECHATRONICS</option>
+              <option value="METALLURGICAL ENGINEERING">METALLURGICAL ENGINEERING</option>
+              <option value="PRODUCTION ENGINEERING">PRODUCTION ENGINEERING</option>
+              <option value="ROBOTICS AND AUTOMATION">ROBOTICS AND AUTOMATION</option>
+                    <!-- Add other options as needed -->
+                </select>
+                <button type="submit">Filter</button>
+            </form>
+        </div>
+        <div id="for-you" class="section active">
+            <h2>For You</h2>
+            <p>{{ count }} results found for {{ caste }} cutoff {{ original_marks }} based on TNEA 2023.</p>
+            <p>Results Found From Cut-Off {{ min_cutoff }} to {{ max_cutoff }}</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>College Code</th>
+                        <th>College Name</th>
+                        <th>Branch Name</th>
+                        <th>Branch Code</th>
+                        <th>Cutoff</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for college in filtered_colleges %}
+                    <tr>
+                        <td>{{ college['College Code'] }}</td>
+                        <td>{{ college['College Name'] }}</td>
+                        <td>{{ college['Branch Name'] }}</td>
+                        <td>{{ college['Branch Code'] }}</td>
+                        <td>{{ college[caste] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div id="top-colleges" class="section">
+            <h2>Top Colleges</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>College Code</th>
+                        <th>College Name</th>
+                        <th>Branch Name</th>
+                        <th>Branch Code</th>
+                        <th>Cutoff</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for college in top_colleges %}
+                    <tr>
+                        <td>{{ college['College Code'] }}</td>
+                        <td>{{ college['College Name'] }}</td>
+                        <td>{{ college['Branch Name'] }}</td>
+                        <td>{{ college['Branch Code'] }}</td>
+                        <td>{{ college[caste] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <a href="/">Back to Home Page</a>
+        </div>
+    </div>
+    <script>
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
